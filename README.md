@@ -1,95 +1,80 @@
-# Claude Code Marketplace 🚀
+# Claude Code Marketplace
 
-**Claude Nexus** - A sophisticated marketplace of professional development workflows for Claude Code.
+A collection of professional development workflow plugins for Claude Code with intelligent processing loops and specialized subagents.
 
 ## Overview
 
-The Claude Code Marketplace provides enterprise-grade plugins that implement complete development lifecycle workflows with intelligent processing loops, automated reviews, and comprehensive quality gates.
+The Claude Code Marketplace provides production-ready plugins that follow the official Claude Code plugin architecture. Each plugin contains specialized subagents with precise, non-overlapping responsibilities.
 
-## Philosophy
+## Key Features
 
-Traditional development workflows are linear. Claude Nexus introduces **cyclic quality loops**:
-- **Planning** → **Review** → **Implementation** → **Testing** → **Bug Analysis** → **Fix** → **Re-test** → **Code Review** → **Review Fixes** → **Documentation** → **Deploy**
-
-Each plugin orchestrates specialized subagents, hooks, and skills to ensure quality at every step.
+- **44 Specialized Subagents** across 5 plugins
+- **Official Claude Code Format**: Markdown-based commands and agents
+- **Intelligent Processing Loops**: Automatic test-fix-retest and review-fix-rereview cycles
+- **Non-Overlapping Responsibilities**: Each agent has ONE clear job
+- **Parallel Execution**: Agents run simultaneously for speed
+- **Self-Contained Plugins**: No shared dependencies between plugins
 
 ## Plugins
 
 ### 🔍 Investigation Plugin
-Deep codebase exploration and architectural understanding.
-- **Use Case**: Understanding legacy code, architecture analysis, dependency mapping
-- **Workflow**: Explore → Analyze → Document → Present Findings
-- **Subagents**: `explorer`, `analyzer`, `documenter`
+**Purpose**: Deep codebase exploration and architectural understanding
+
+**Agents (5)**: structure-mapper, dependency-analyzer, pattern-detector, tech-debt-assessor, documentation-generator
+
+**Usage**: `/investigate` or `/investigate src/auth`
+
+**Output**: ARCHITECTURE.md, COMPONENTS.md, DEPENDENCIES.md, TECHNICAL_DEBT.md, INVESTIGATION_REPORT.md
+
+---
 
 ### 📚 Research Plugin
-Technology research, API exploration, and best practice discovery.
-- **Use Case**: Evaluating technologies, researching patterns, API investigation
-- **Workflow**: Research → Compare → Evaluate → Recommend
-- **Subagents**: `researcher`, `evaluator`, `comparator`
+**Purpose**: Technology research and comparative analysis
+
+**Agents (5)**: information-gatherer, feature-comparator, performance-evaluator, ecosystem-evaluator, recommendation-synthesizer
+
+**Usage**: `/research "Compare React vs Vue vs Svelte"`
+
+**Output**: RESEARCH_REPORT.md, REFERENCES.md
+
+---
 
 ### 👁️ Review Plugin
-Multi-perspective code review with automated quality checks.
-- **Use Case**: PR reviews, architecture reviews, security audits
-- **Workflow**: Analyze → Review → Validate → Report → Fix Review → Re-validate
-- **Subagents**: `code-reviewer`, `security-reviewer`, `performance-reviewer`
+**Purpose**: Multi-perspective code review with 19 specialized reviewers
+
+**Reviewers (19)**:
+- Architecture (1): architect-reviewer
+- Security (3): authentication, input-validation, cryptography
+- Performance (3): algorithms, database, resources
+- Backend (5): PHP, Python, Node.js, Go, Bash
+- Frontend (4): React, Vue, HTML, CSS
+- DevOps (3): Docker, Kubernetes, CI/CD
+
+**Usage**: `/review` or `/review src/**/*.php`
+
+**Processing**: Quality gates → Fix loop (max 2 iterations) → Report
+
+---
 
 ### ✨ Feature Plugin
-Complete feature development with quality loops.
-- **Use Case**: New feature development from concept to deployment
-- **Workflow**:
-  - **Plan** → Planning Review → **Implement**
-  - → **Test** → (Bug Analysis → Fix → Re-test)*
-  - → **Review** → (Review Fixes → Re-review)*
-  - → **Document** → **Deploy**
-- **Subagents**: `planner`, `implementer`, `tester`, `bug-analyzer`, `reviewer`, `documenter`
+**Purpose**: Complete feature development lifecycle
+
+**Agents (8)**: architecture-planner, implementation-planner, code-implementer, test-writer, test-runner, test-failure-analyzer, code-quality-reviewer, implementation-documenter
+
+**Usage**: `/feature "Add OAuth2 authentication"`
+
+**Loops**: Testing Loop (max 3), Review Loop (max 2)
+
+---
 
 ### 🐛 Bugfix Plugin
-Intelligent bug fixing with comprehensive testing loops.
-- **Use Case**: Bug fixes with root cause analysis and verification
-- **Workflow**:
-  - **Analyze Bug** → **Identify Root Cause** → **Plan Fix**
-  - → **Implement Fix** → **Test**
-  - → (Bug Still Exists? → Re-analyze → Re-fix → Re-test)*
-  - → **Regression Test** → **Review** → **Deploy**
-- **Subagents**: `bug-analyzer`, `root-cause-detective`, `fixer`, `tester`, `regression-tester`
+**Purpose**: Systematic bug fixing with root cause analysis
 
-## Architecture
+**Agents (7)**: bug-reproducer, root-cause-analyst, impact-assessor, fix-planner, fix-implementer, fix-tester, regression-tester
 
-```
-claude-code-marketplace/
-├── plugins/                    # Plugin implementations
-│   ├── investigation/
-│   ├── research/
-│   ├── review/
-│   ├── feature/
-│   └── bugfix/
-├── subagents/                  # Reusable subagent definitions
-├── skills/                     # Reusable skill implementations
-├── hooks/                      # Event-driven automation hooks
-├── workflows/                  # Workflow orchestration definitions
-├── examples/                   # Usage examples
-└── docs/                       # Comprehensive documentation
-```
+**Usage**: `/bugfix "Login fails with special characters"`
 
-## Key Concepts
-
-### Subagents
-Specialized AI agents optimized for specific tasks (e.g., `bug-analyzer`, `security-reviewer`)
-
-### Skills
-Reusable capabilities that can be invoked (e.g., `run-tests`, `analyze-performance`)
-
-### Hooks
-Event-driven automation that triggers on specific events (e.g., `pre-commit`, `post-test`, `on-failure`)
-
-### Workflows
-Orchestrated sequences of subagents, skills, and hooks that implement processing loops
-
-### Processing Loops
-Intelligent cycles that repeat until quality criteria are met:
-- **Testing Loop**: Test → Analyze Failures → Fix → Re-test
-- **Review Loop**: Review → Apply Feedback → Re-review
-- **Quality Gate Loop**: Check Quality → Fix Issues → Re-check
+**Loop**: Fix → Test → Re-analyze → Re-fix (max 3 iterations)
 
 ## Installation
 
@@ -97,47 +82,86 @@ Intelligent cycles that repeat until quality criteria are met:
 # Clone the marketplace
 git clone https://github.com/avovello/claude-code-marketplace.git
 
-# Link desired plugins to your Claude Code workspace
-cd your-project
-ln -s /path/to/claude-code-marketplace/plugins/feature .claude/workflows/feature
+# Install a specific plugin
+cp -r claude-code-marketplace/plugins/review .claude/plugins/
 ```
 
-## Usage
+## Usage Examples
 
-See `examples/` for detailed usage examples of each plugin.
+### Investigation
+```bash
+/investigate                    # Full codebase
+/investigate src/auth          # Specific directory
+```
 
-## Plugin Approach Options
+### Research
+```bash
+/research "Compare state management: Redux vs Zustand vs MobX"
+```
 
-We provide **three implementation approaches** for maximum flexibility:
+### Review
+```bash
+/review                        # Review current changes
+/review src/**/*.php          # Review specific files
+```
 
-### Approach 1: Monolithic Workflows (Recommended for simplicity)
-Single workflow file that orchestrates everything with state management.
-- ✅ Simple to understand and maintain
-- ✅ Easy state sharing between steps
-- ❌ Less modular, harder to reuse components
+### Feature Development
+```bash
+/feature "Add real-time notifications with WebSockets"
+```
 
-### Approach 2: Modular Composition (Recommended for reusability)
-Separate subagents, skills, and workflows composed via configuration.
-- ✅ Highly modular and reusable
-- ✅ Easy to mix and match components
-- ❌ More complex setup
+### Bug Fixing
+```bash
+/bugfix "File upload fails for files > 5MB"
+```
 
-### Approach 3: Hybrid (Recommended for production)
-Core workflows with pluggable subagents and hooks for customization.
-- ✅ Balance of simplicity and flexibility
-- ✅ Easy to extend and customize
-- ✅ Production-ready
+## Architecture
 
-See `docs/approaches.md` for detailed comparison and recommendations.
+Each plugin follows official Claude Code structure:
+
+```
+plugin-name/
+├── .claude-plugin/
+│   └── plugin.json           # Plugin manifest
+├── commands/
+│   └── command-name.md       # Command implementation (markdown)
+├── agents/
+│   ├── agent-1.md           # Specialized agent (markdown)
+│   ├── agent-2.md
+│   └── agent-n.md
+└── README.md
+```
+
+## Statistics
+
+- **Total Plugins**: 5
+- **Total Subagents**: 44
+- **Investigation**: 5 agents
+- **Research**: 5 agents
+- **Review**: 19 reviewers (most complex)
+- **Feature**: 8 agents
+- **Bugfix**: 7 agents
+
+## Documentation
+
+- **README.md**: This file
+- **QUICKSTART.md**: Quick start guide
+- **CONTRIBUTING.md**: Contribution guidelines
+- **REFACTORING_PLAN_V3_FINAL.md**: Architecture decisions
+- Each plugin has its own README with detailed usage
 
 ## Contributing
 
-Contributions welcome! Please see `CONTRIBUTING.md` for guidelines.
+Contributions welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Version
+
+1.0.0
 
 ## License
 
-MIT License - see LICENSE file for details.
+MIT License - see [LICENSE](LICENSE)
 
 ---
 
-Built with ❤️ for the Claude Code community
+**Built following official Claude Code plugin architecture**
