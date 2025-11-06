@@ -13,7 +13,7 @@
   "plugins": [
     {
       "name": "audit",
-      "source": "plugins/audit",
+      "source": "./plugins/audit",
       "description": "Internal codebase audit for legacy code analysis, architecture documentation, technical debt assessment, and dependency mapping",
       "version": "0.1.0",
       "author": {
@@ -31,7 +31,7 @@
     },
     {
       "name": "research",
-      "source": "plugins/research",
+      "source": "./plugins/research",
       "description": "Technology research, API exploration, and best practices discovery with comparative analysis and recommendations",
       "version": "0.1.0",
       "author": {
@@ -48,7 +48,7 @@
     },
     {
       "name": "feature",
-      "source": "plugins/feature",
+      "source": "./plugins/feature",
       "description": "Complete feature development lifecycle with planning, implementation, testing loops, code review loops, and documentation",
       "version": "0.1.0",
       "author": {
@@ -66,7 +66,7 @@
     },
     {
       "name": "prototype",
-      "source": "plugins/prototype",
+      "source": "./plugins/prototype",
       "description": "Quick experimentation through rapid prototyping, A/B testing, and data-driven decision making",
       "version": "0.1.0",
       "author": {
@@ -83,7 +83,7 @@
     },
     {
       "name": "refactor",
-      "source": "plugins/refactor",
+      "source": "./plugins/refactor",
       "description": "Systematic technical debt reduction and code refactoring with continuous improvement cycles",
       "version": "0.1.0",
       "author": {
@@ -100,7 +100,7 @@
     },
     {
       "name": "optimize",
-      "source": "plugins/optimize",
+      "source": "./plugins/optimize",
       "description": "Performance optimization through systematic profiling, bottleneck identification, and speed improvements",
       "version": "0.1.0",
       "author": {
@@ -117,7 +117,7 @@
     },
     {
       "name": "harden",
-      "source": "plugins/harden",
+      "source": "./plugins/harden",
       "description": "Security hardening through vulnerability scanning, configuration auditing, and comprehensive security improvements",
       "version": "0.1.0",
       "author": {
@@ -134,7 +134,7 @@
     },
     {
       "name": "review",
-      "source": "plugins/review",
+      "source": "./plugins/review",
       "description": "Multi-perspective code review with 19 specialized reviewers covering architecture, security, performance, backend, frontend, and DevOps",
       "version": "0.1.0",
       "author": {
@@ -152,7 +152,7 @@
     },
     {
       "name": "bugfix",
-      "source": "plugins/bugfix",
+      "source": "./plugins/bugfix",
       "description": "Systematic bug fixing with reproduction, root cause analysis, fix implementation, and comprehensive regression testing",
       "version": "0.1.0",
       "author": {
@@ -169,7 +169,7 @@
     },
     {
       "name": "deploy",
-      "source": "plugins/deploy",
+      "source": "./plugins/deploy",
       "description": "CI/CD pipeline setup, deployment automation, monitoring configuration, and rollback strategies",
       "version": "0.1.0",
       "author": {
@@ -186,7 +186,7 @@
     },
     {
       "name": "migrate",
-      "source": "plugins/migrate",
+      "source": "./plugins/migrate",
       "description": "Framework and database migrations with zero-downtime strategies and rollback planning",
       "version": "0.1.0",
       "author": {
@@ -203,7 +203,7 @@
     },
     {
       "name": "document",
-      "source": "plugins/document",
+      "source": "./plugins/document",
       "description": "Documentation maintenance through automated API documentation, architecture diagrams, and comprehensive developer guides",
       "version": "0.1.0",
       "author": {
@@ -220,7 +220,7 @@
     },
     {
       "name": "ai-integration",
-      "source": "plugins/ai-integration",
+      "source": "./plugins/ai-integration",
       "description": "AI/ML workflows including LLM integration, vector databases, RAG implementation, and ML pipelines",
       "version": "0.1.0",
       "author": {
